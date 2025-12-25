@@ -25,7 +25,7 @@ jobs:
       - name: Run image fetcher
         env:
           GALLERY_ID: 524886   # <-- change as needed
-          PAGES: 159             # <-- change as needed
+          PAGES: 20             # <-- change as needed
         run: ./target/release/image_fetcher
 
       # Step 5: Upload downloaded images as artifact
