@@ -27,11 +27,11 @@ fn main() {
 
     for page in 1..=pages {
         let url = format!(
-            "https://i3.nhentai.net/galleries/{}/{}.webp",
+            "https://i4.nhentai.net/galleries/{}/{}.jpg",
             gallery_id, page
         );
 
-        let file_path = format!("{}/{}.webp", output_dir, page);
+        let file_path = format!("{}/{}.jpg", output_dir, page);
         if Path::new(&file_path).exists() {
             println!("Skipping page {}", page);
             continue;
