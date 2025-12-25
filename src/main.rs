@@ -7,9 +7,12 @@ use reqwest::Client;
 
 fn main() {
     // Read environment variables
-    let gallery_id = env::var("3690850")
-        .expect("GALLERY_ID not set");
-    let pages: u32 = env::var("10")
+    let gallery_id = env::var("GALLERY_ID")
+    .unwrap_or_else(|_| {
+        eprintln!("GALLERY_ID not set. Using default 3690850 for testing.");
+        "3690850".to_string()
+    });
+    let pages: u32 = env::var("PAGES")
         .unwrap_or("10".into())
         .parse()
         .expect("Invalid PAGES");
@@ -24,7 +27,7 @@ fn main() {
 
     for page in 1..=pages {
         let url = format!(
-            "https://i4.nhentai.net/galleries/{}/{}.webp",
+            "https://i4.nhentai.net/galleries/{}/{}t.jpg",
             gallery_id, page
         );
 
