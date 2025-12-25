@@ -441,13 +441,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "ideal_fetcher"
-version = "0.1.0"
-dependencies = [
- "reqwest",
-]
-
-[[package]]
 name = "idna"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -466,6 +459,13 @@ checksum = "3acae9609540aa318d1bc588455225fb2085b9ed0c4f6bd0d9d5bcd86f1a0344"
 dependencies = [
  "icu_normalizer",
  "icu_properties",
+]
+
+[[package]]
+name = "image_fetcher"
+version = "0.1.0"
+dependencies = [
+ "reqwest",
 ]
 
 [[package]]

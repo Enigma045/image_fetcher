@@ -27,7 +27,7 @@ fn main() {
 
     for page in 1..=pages {
         let url = format!(
-            "https://i4.nhentai.net/galleries/{}/{}t.jpg",
+            "https://i4.nhentai.net/galleries/{}/{}.webp",
             gallery_id, page
         );
 
