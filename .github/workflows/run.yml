@@ -23,10 +23,7 @@ jobs:
 
       # Step 4: Run the downloader
       - name: Run Ideal fetcher
-        env:
-          GALLERY_ID: 3690850   # <-- change as needed
-          PAGES: 20             # <-- change as needed
-        run: ./target/release/ideal_fetcher
+        run: GALLERY_ID=3690850 PAGES=20 ./target/release/ideal_fetcher
 
       # Step 5: Upload downloaded images as artifact
       - name: Upload images
