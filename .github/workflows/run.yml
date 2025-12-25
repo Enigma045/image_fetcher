@@ -1,0 +1,36 @@
+name: Image Fetcher
+
+# Allows manual trigger
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch_images:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Install Rust
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      # Step 3: Build the binary
+      - name: Build
+        run: cargo build --release
+
+      # Step 4: Run the downloader
+      - name: Run image fetcher
+        env:
+          GALLERY_ID: 3690850   # <-- change as needed
+          PAGES: 20             # <-- change as needed
+        run: ./target/release/image_fetcher
+
+      # Step 5: Upload downloaded images as artifact
+      - name: Upload images
+        uses: actions/upload-artifact@v4
+        with:
+          name: downloaded-images
+          path: downloads/
